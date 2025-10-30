@@ -68,6 +68,8 @@ set(libcommongui_NAME "${APPLICATION_NAME}commongui")
 set(libsyncengine_NAME "${APPLICATION_NAME}syncengine")
 set(libparms_NAME "${APPLICATION_NAME}parms")
 
+find_package(PkgConfig REQUIRED)
+
 # For PocoUtilConfig
 set(ENABLE_XML TRUE)
 set(ENABLE_JSON TRUE)
@@ -131,10 +133,10 @@ if(NO_MSG_HANDLER)
 endif()
 
 # this option builds the shell integration
-option(BUILD_EXTENSIONS "BUILD_EXTENSIONS" ON)
+option(BUILD_EXTENSIONS "BUILD_EXTENSIONS" OFF)
 
 # this option builds/installs the generic shell integration icons
-option(BUILD_EXTENSIONS_ICONS "BUILD_EXTENSIONS_ICONS" ON)
+option(BUILD_EXTENSIONS_ICONS "BUILD_EXTENSIONS_ICONS" OFF)
 
 # this option builds the client
 option(BUILD_CLIENT "BUILD_CLIENT" ON)
@@ -146,7 +148,7 @@ option(BUILD_DOCS "BUILD_DOCS" OFF)
 option(BUILD_LIBRARIES_ONLY "BUILD_LIBRARIES_ONLY" OFF)
 
 # this option adds src/gui to the subdirectories when building the src folder 
-option(BUILD_GUI "BUILD_GUI" ON)
+option(BUILD_GUI "BUILD_GUI" OFF)
 
 # build the tests
 option(BUILD_UNIT_TESTS "BUILD_UNIT_TESTS" OFF)

@@ -8,7 +8,7 @@ find_package(Qt6 REQUIRED Core)
 find_package(SQLite3 3.8.0 REQUIRED)
 find_package(Poco 1.13.3 REQUIRED Foundation Net JSON Util)
 find_package(OpenSSL 3.1.0 REQUIRED SSL Crypto)
-find_package(xxHash 0.8.2 REQUIRED)
+pkg_check_modules(xxhash REQUIRED libxxhash)
 
 if(UNIX AND CMAKE_BUILD_TYPE MATCHES "RelWithDebInfo")
     # Use fallback library types for imported dependencies
@@ -142,7 +142,7 @@ target_link_libraries(${libcommonserver_NAME}
     ${SQLITE3_LIBRARIES}
     Poco::Foundation Poco::Net Poco::JSON Poco::Util
     OpenSSL::SSL OpenSSL::Crypto
-    xxHash::xxhash
+    xxhash
     libzip::zip)
 
 if(WIN32)
